@@ -1,0 +1,15 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+command: >
+  python train.py
+environment: azureml://registries/azureml/environments/sklearn-1.5/versions/41
+code: ../src
+compute: azureml:cpu-cluster
+experiment_name: ai300-github-train
+display_name: train-from-github
+
+inputs:
+  training_data: azureml:sample-data
+
+outputs:
+  model_output:
+    mode: rw_mount
